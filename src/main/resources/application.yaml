@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: blockchainExplorer
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/blockchain
+
+
+
+block_cypher:
+  token: 1d435e1071d84161a54a274b7b4b7f83
