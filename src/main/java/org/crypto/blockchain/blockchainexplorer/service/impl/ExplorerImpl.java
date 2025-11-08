@@ -11,11 +11,9 @@ import org.crypto.blockchain.blockchainexplorer.repository.BlockRepository;
 import org.crypto.blockchain.blockchainexplorer.repository.TransactionRepository;
 import org.crypto.blockchain.blockchainexplorer.service.Explorer;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.pulsar.PulsarProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +48,6 @@ public class ExplorerImpl implements Explorer {
 
 
         for (int i = 0; i < count; i++) {
-            json = restTemplate.getForObject(BASE_URL + "/blocks/" + currentHash, String.class);
             Map<String, Object> block = restTemplate.getForObject(BASE_URL + "/blocks/" + currentHash, Map.class);
             saveBlock(block);
             currentHash = (String) block.get("prev_block");
